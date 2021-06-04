@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="UTF-8">
+	<title>簡易鋼琴程式</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+</head>
+<body>
+<div class="piano"> 
+  <div class="piano_body">
+    <div class="sheets">
+      <div class="sheet sheet_0"></div>
+      <div class="sheet sheet_1"></div>
+      <div class="sheet sheet_2"></div>
+      <div class="sheet sheet_3"></div>
+      <div class="sheet sheet_4"></div>
+      <div class="sheet sheet_5"></div>
+      <div class="sheet sheet_6"></div>
+      <div class="sheet sheet_7"></div>
+      <div class="sheet sheet_8"></div>
+      <div class="sheet sheet_9"></div>
+      <div class="sheet sheet_10"></div>
+      <div class="sheet sheet_11"></div>
+      <div class="sheet sheet_12"></div>
+	  <div class="maru maru_1"></div>
+	  <div class="maru maru_2"></div>
+	  <div class="maru maru_3"></div>
+	  <div class="maru maru_4"></div>
+	  <div class="maru maru_5"></div>
+	  <div class="maru maru_6"></div>
+	  <div class="maru maru_7"></div>
+	  <div class="maru maru_8"></div>
+	  <div class="maru maru_9"></div>
+	  <div class="maru maru_10"></div>
+	  <div class="maru maru_11"></div>
+	  <div class="maru maru_12"></div>
+	  <div class="maru maru_13"></div>
+    </div>
+  </div>
+  <div class="piano_buttons">
+    <div class="buttons">
+      <button class="btn_white" id="q">q</button>
+      <button class="btn_black" id="2"><br><br><br>2</button>
+      <button class="btn_white" id="w">w</button>
+      <button class="btn_black" id="3"><br><br><br>3</button>
+      <button class="btn_white" id="e">e</button>
+      <button class="btn_black" id="4"><br><br><br>4</button>
+      <button class="btn_white" id="r">r</button>
+      <button class="btn_white" id="u">u</button>
+      <button class="btn_black" id="8"><br><br><br>8</button>
+      <button class="btn_white" id="i">i</button>
+      <button class="btn_black" id="9"><br><br><br>9</button>
+      <button class="btn_white" id="o">o</button>
+      <button class="btn_white" id="p">p</button>
+    </div>
+  </div>
+</div>
+<audio id="bq" src="sound/q.wav"></audio>
+<audio id="b2" src="sound/2.wav"></audio>
+<audio id="bw" src="sound/w.wav"></audio>
+<audio id="b3" src="sound/3.wav"></audio>
+<audio id="be" src="sound/e.wav"></audio>
+<audio id="b4" src="sound/4.wav"></audio>
+<audio id="br" src="sound/r.wav"></audio>
+<audio id="bu" src="sound/u.wav"></audio>
+<audio id="b8" src="sound/8.wav"></audio>
+<audio id="bi" src="sound/i.wav"></audio>
+<audio id="b9" src="sound/9.wav"></audio>
+<audio id="bo" src="sound/o.wav"></audio>
+<audio id="bp" src="sound/p.wav"></audio>
+
+<script>
+	var sq = document.getElementById("q");
+	var s2 = document.getElementById("2");
+	var sw = document.getElementById("w");
+	var s3 = document.getElementById("3");
+	var se = document.getElementById("e");
+	var s4 = document.getElementById("4");
+	var sr = document.getElementById("r");
+	var su = document.getElementById("u");
+	var s8 = document.getElementById("8");
+	var si = document.getElementById("i");
+	var s9 = document.getElementById("9");
+	var so = document.getElementById("o");
+	var sp = document.getElementById("p");
+	
+	var bq = document.getElementById("bq");
+	var b2 = document.getElementById("b2");
+	var bw = document.getElementById("bw");
+	var b3 = document.getElementById("b3");
+	var be = document.getElementById("be");
+	var b4 = document.getElementById("b4");
+	var br = document.getElementById("br");
+	var bu = document.getElementById("bu");
+	var b8 = document.getElementById("b8");
+	var bi = document.getElementById("bi");
+	var b9 = document.getElementById("b9");
+	var bo = document.getElementById("bo");
+	var bp = document.getElementById("bp");
+	
+	document.addEventListener("keydown",piano);
+	document.addEventListener("keyup",pianoStop);
+	
+	function piano(evt){
+//		alert(event.keyCode);
+		if (evt.keyCode == 81){
+			bq.play();
+			sq.style.backgroundColor = "#999";
+			$(".maru_1").addClass("maruani");
+		}
+		if (evt.keyCode == 50){
+			b2.play();
+			s2.style.backgroundColor = "#999";
+			$(".maru_2").addClass("maruani");
+		}
+		if (evt.keyCode == 87){
+			bw.play();
+			sw.style.backgroundColor = "#999";
+			$(".maru_3").addClass("maruani");
+		}
+		if (evt.keyCode == 51){
+			b3.play();
+			s3.style.backgroundColor = "#999";
+			$(".maru_4").addClass("maruani");
+		}
+		if (evt.keyCode == 69){
+			be.play();
+			se.style.backgroundColor = "#999";
+			$(".maru_5").addClass("maruani");
+		}
+		if (evt.keyCode == 52){
+			b4.play();
+			s4.style.backgroundColor = "#999";
+			$(".maru_6").addClass("maruani");
+		}
+		if (evt.keyCode == 82){
+			br.play();
+			sr.style.backgroundColor = "#999";
+			$(".maru_7").addClass("maruani");
+		}
+		if (evt.keyCode == 85){
+			bu.play();
+			su.style.backgroundColor = "#999";
+			$(".maru_8").addClass("maruani");
+		}
+		if (evt.keyCode == 56){
+			b8.play();
+			s8.style.backgroundColor = "#999";
+			$(".maru_9").addClass("maruani");
+		}
+		if (evt.keyCode == 73){
+			bi.play();
+			si.style.backgroundColor = "#999";
+			$(".maru_10").addClass("maruani");
+		}
+		if (evt.keyCode == 57){
+			b9.play();
+			s9.style.backgroundColor = "#999";
+			$(".maru_11").addClass("maruani");
+		}
+		if (evt.keyCode == 79){
+			bo.play();
+			so.style.backgroundColor = "#999";
+			$(".maru_12").addClass("maruani");
+		}
+		if (evt.keyCode == 80){
+			bp.play();
+			sp.style.backgroundColor = "#999";
+			$(".maru_13").addClass("maruani");
+		}
+	}
+	function pianoStop(evt){
+		if (evt.keyCode == 81){
+			bq.pause(); 
+			bq.currentTime = 0; 
+			sq.style.backgroundColor = "#fff";
+			$(".maru_1").removeClass("maruani");
+		}
+		if (evt.keyCode == 50){
+			b2.pause(); 
+			b2.currentTime = 0; 
+			s2.style.backgroundColor = "#000";
+			$(".maru_2").removeClass("maruani");
+		}
+		if (evt.keyCode == 87){
+			bw.pause(); 
+			bw.currentTime = 0; 
+			sw.style.backgroundColor = "#fff";
+			$(".maru_3").removeClass("maruani");
+		}
+		if (evt.keyCode == 51){
+			b3.pause(); 
+			b3.currentTime = 0; 
+			s3.style.backgroundColor = "#000";
+			$(".maru_4").removeClass("maruani");
+		}
+		if (evt.keyCode == 69){
+			be.pause(); 
+			be.currentTime = 0; 
+			se.style.backgroundColor = "#fff";
+			$(".maru_5").removeClass("maruani");
+		}
+		if (evt.keyCode == 52){
+			b4.pause(); 
+			b4.currentTime = 0; 
+			s4.style.backgroundColor = "#000";
+			$(".maru_6").removeClass("maruani");
+		}
+		if (evt.keyCode == 82){
+			br.pause(); 
+			br.currentTime = 0; 
+			sr.style.backgroundColor = "#fff";
+			$(".maru_7").removeClass("maruani");
+		}
+		if (evt.keyCode == 85){
+			bu.pause(); 
+			bu.currentTime = 0; 
+			su.style.backgroundColor = "#fff";
+			$(".maru_8").removeClass("maruani");
+		}
+		if (evt.keyCode == 56){
+			b8.pause(); 
+			b8.currentTime = 0; 
+			s8.style.backgroundColor = "#000";
+			$(".maru_9").removeClass("maruani");
+		}
+		if (evt.keyCode == 73){
+			bi.pause(); 
+			bi.currentTime = 0; 
+			si.style.backgroundColor = "#fff";
+			$(".maru_10").removeClass("maruani");
+		}
+		if (evt.keyCode == 57){
+			b9.pause(); 
+			b9.currentTime = 0; 
+			s9.style.backgroundColor = "#000";
+			$(".maru_11").removeClass("maruani");
+		}
+		if (evt.keyCode == 79){
+			bo.pause(); 
+			bo.currentTime = 0; 
+			so.style.backgroundColor = "#fff";
+			$(".maru_12").removeClass("maruani");
+		}
+		if (evt.keyCode == 80){
+			bp.pause(); 
+			bp.currentTime = 0; 
+			sp.style.backgroundColor = "#fff";
+			$(".maru_13").removeClass("maruani");
+		}
+	}
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
