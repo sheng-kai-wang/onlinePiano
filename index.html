@@ -294,6 +294,8 @@
         var bo = document.getElementById("bo");
         var bp = document.getElementById("bp");
 
+        var m1 = document.getElementsByClassName("maru_1");
+
         document.addEventListener("keydown", piano);
         document.addEventListener("keyup", pianoStop);
 
@@ -302,7 +304,7 @@
             if (evt.keyCode == 81) {
                 bq.play();
                 sq.style.backgroundColor = "#999";
-                $(".maru_1").addClass("maruani");
+                m1.classList.add("maruani");
             }
             if (evt.keyCode == 50) {
                 b2.play();
